@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phoneBookApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body ng-controller="MainCtrl">
+
+<!--todo: Сделать директиву панель текущего юзера + кнопка выхода.
+	todo : Перенести логику с MainCtrl в контреллер директивы-->
+
+<button ng-click="out()">out</button>
+
+<section ui-view></section>
+
+<script src="js/library/angular.min.js"></script>
+<script src="js/library/angular-ui-router.js"></script>
+<script src="js/library/firebase.js"></script>
+<script src="js/library/angularfire.js"></script>
+<script src="js/library/initFirebase.js"></script>
+
+<script src="js/app/app.js"></script>
+<script src="js/app/controllers/start-page/startPage.js"></script>
+<script src="js/app/directive/startButtons/start-buttons.js"></script>
+<script src="js/app/controllers/login/login.js"></script>
+<script src="js/app/controllers/home/home.js"></script>
+<script src="js/app/controllers/create-account/createAccount.js"></script>
+<script src="js/app/service/loginService.js"></script>
+<script>
+
+    angular.module('phoneBookApp').controller('MainCtrl', function ($scope, loginService, $rootScope, $state) {
+        $scope.val = loginService.isAuth();
+        $scope.out = function() {
+            loginService.signOut();
+
+        };
+        console.log('dd', $scope.val );
+//        console.log('ss', loginService.getUser());
+    })
+</script>
+
+</body>
+</html>
