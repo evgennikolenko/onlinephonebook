@@ -1,0 +1,36 @@
+.login-form{
+    width: 30%;
+    margin: auto;
+}
+
+.login-form__input{
+    outline: none;
+    height: 45px;
+    margin-bottom: 3px;
+}
+
+.form-control{
+    color: #425232 ;
+
+}
+
+.form-control:focus{
+    outline: none;
+    color: #425232 !important;
+
+}
+
+.login-form__login-btn{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.login-form__registration-btn{
+    margin-top: 30px;
+    width: 50%;
+    color: #425232;
+    text-decoration: underline;
+    border: none;
+    font-size: 16px;
+}

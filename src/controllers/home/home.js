@@ -15,7 +15,7 @@ function homeCtrl(loginService) {
        home.email = user.email;
     };
     home.authObj = loginService.isAuth();
-
+    home.currentUserName = firebase.auth().currentUser.displayName;
     // console.log( home.authObj);
 
 }
@@ -26,11 +26,11 @@ Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: "/phonebook/home",
-        templateUrl: 'js/app/controllers/home/home.html',
+        templateUrl: 'controllers/home/home.html',
         resolve: {
             auth: function ($q, $state, loginService) {
                 console.log('RRR', loginService.getUser());
-                if (loginService.getUser() === undefined || loginService.getUser() === null) {
+                if (loginService.getUser() === null) {
                     $q.reject();
                     alert('Вы должны авторизироваться!');
                     $state.go('login');

@@ -27,7 +27,7 @@ Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('login', {
         url: "/phonebook/login",
-        templateUrl: 'js/app/controllers/login/login.html',
+        templateUrl: 'controllers/login/login.html',
         resolve: {
         },
         controllerAs: 'login',

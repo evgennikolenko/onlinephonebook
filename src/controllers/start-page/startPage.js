@@ -16,12 +16,11 @@ Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('phonebook', {
         url: "/phonebook",
-        templateUrl: 'js/app/controllers/start-page/startPage.html',
+        templateUrl: 'controllers/start-page/startPage.html',
         resolve: {
             auth: function ($q, $state, loginService) {
-
                 console.log('RRR', loginService.getUser());
-                if (loginService.getUser() !== undefined && loginService.getUser() !== null) {
+                if (loginService.getUser() !== null) {
                     $q.reject();
                     alert('Вы авторизованы!');
                     $state.go('home');

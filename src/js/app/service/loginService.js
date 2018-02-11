@@ -15,11 +15,14 @@ function loginService($state, $rootScope, $firebaseAuth) {
     self.createAccount = function (objPassAndEmail) {
         firebase.auth().createUserWithEmailAndPassword(objPassAndEmail.email, objPassAndEmail.password)
             .then(function(user) {
-
                 console.log("Signed in as:", user.uid);
-                $rootScope.flagNotSignIn = false;
+                // $rootScope.flagNotSignIn = false;
+                user.updateProfile({
+                    displayName: objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName
+                });
                 $state.go('home');
-            }).catch(function(error) {
+            })
+       .catch(function(error) {
             console.error("Authentication failed:", error);
         });
     };
@@ -53,6 +56,14 @@ function loginService($state, $rootScope, $firebaseAuth) {
         var firebaseUser = $firebaseAuth().$getAuth();
         return firebaseUser;
     };
+
+    self.currentUser = function () {
+        firebase.auth().currentUser.then(function (curUser) {
+            console.log("ww", curUser);
+        });
+
+    };
+
     self.signOut = function () {
         firebase.auth().signOut().then(function() {
             alert("Exit!!!");

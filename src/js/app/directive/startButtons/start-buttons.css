@@ -1,0 +1,14 @@
+.start-buttons {
+    margin: auto;
+    width: 80%;
+    height: 50px;
+}
+
+.start-buttons__enter{
+    display: inline-block;
+
+}
+
+.start-buttons__registration{
+    display: inline-block;
+}

@@ -9,9 +9,13 @@ angular.module('phoneBookApp', ['ui.router',
                                 'phoneBookApp.home']);
 
 angular.module('phoneBookApp')
-    .run(function ($rootScope) {
+    .run(function ($rootScope, loginService) {
         $rootScope.flagNotSignIn = true;
-
+       $rootScope.isAuth = function () {
+           if (loginService.getUser() === null) {
+               return false;
+           } else return true;
+       };
     })
     .config(function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('phonebook');

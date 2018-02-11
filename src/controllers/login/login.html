@@ -1,8 +1,13 @@
-<h1 style="font-size: 25px">Input data</h1>
-<form ng-submit='login.signIn()'>
-	<label for="login.objPassAndEmail.email">Введите почту:</label>
-	<input type="email" ng-model="login.objPassAndEmail.email" >
-	<label for="login.objPassAndEmail.password">Введите пароль:</label>
-	<input type="password" ng-model="login.objPassAndEmail.password">
-	<button>Войти</button>
-</form>
+<div class="login-form">
+	<form class="text-center form-signin" ng-submit='login.signIn()'>
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<!--<label class="sr-only" for="login.objPassAndEmail.email">Введите почту:</label>-->
+		<input class="login-form__input form-control" placeholder="Email address" type="email" ng-model="login.objPassAndEmail.email" >
+		<!--<label class="sr-only" for="login.objPassAndEmail.password">Введите пароль:</label>-->
+		<input class="login-form__input form-control" placeholder="Password" type="password" ng-model="login.objPassAndEmail.password">
+		<button class="login-form__login-btn btn btn-lg btn-success btn-block">Войти</button>
+
+		<a ui-sref="create" class="login-form__registration-btn btn btn-outline-light btn-sm">Еще нет аккаунта!</a>
+	</form>
+</div>
+
