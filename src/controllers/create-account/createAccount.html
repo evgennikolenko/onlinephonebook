@@ -1,0 +1,14 @@
+<div class="create-form">
+<form class="text-center form-signin" ng-submit='create.createUser()'>
+	<h1 class="h3 mb-3 font-weight-normal">Input data</h1>
+	<!--<label for="create.objRegistrationData.userName">Введите имя:</label>-->
+	<input class="create-form__input form-control" placeholder="Input first name" type="text" ng-model="create.objRegistrationData.userFirstName">
+	<input class="create-form__input form-control" placeholder="Input last name" type="text" ng-model="create.objRegistrationData.userLastName">
+	<!--<label for="login.objRegistrationData.password">Введите почту:</label>-->
+	<input class="create-form__input form-control" placeholder="Input email" type="email" ng-model="create.objRegistrationData.email">
+	<!--<label for="login.objRegistrationData.password">Введите пароль:</label>-->
+	<input class="create-form__input form-control" placeholder="Input password" type="password" ng-model="create.objRegistrationData.password">
+	<button class="login-form__create-btn btn btn-lg btn-success btn-block">Зарегистрироваться!</button>
+</form>
+
+</div>

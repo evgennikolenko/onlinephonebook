@@ -12,7 +12,8 @@ function createAccountCtrl(loginService) {
     var create = this;
 
     create.objRegistrationData = {
-        // userName : '',
+        userFirstName : '',
+        userLastName : '',
         email: '',
         password: ''
     };
@@ -31,7 +32,7 @@ Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('create', {
         url: "/phonebook/create",
-        templateUrl: 'js/app/controllers/create-account/createAccount.html',
+        templateUrl: 'controllers/create-account/createAccount.html',
         resolve: {
             auth: function ($q, $state, loginService) {
                 if (loginService.getUser() !== null) {
