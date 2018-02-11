@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="phoneBookApp">
 <head>
+
+	<!-- Required meta tags -->
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit">
+
+	<title>phonebook</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- stylesheet -->
+	<!--todo: 	Соеденить в один!-->
+	<link rel="stylesheet" href="js/app/directive/startButtons/start-buttons.css">
+	<link rel="stylesheet" href="controllers/start-page/startPage.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="controllers/login/login.css">
+	<link rel="stylesheet" href="controllers/create-account/createAccount.css">
 </head>
-<body ng-controller="MainCtrl">
 
-<!--todo: Сделать директиву панель текущего юзера + кнопка выхода.
-	todo : Перенести логику с MainCtrl в контреллер директивы-->
+<body>
+<!--todo: 	Не выйдя из акка и закрыв вкладку, при новом заходе на /phonebook (открыв наново вкладку)
+	todo: 	не перебрасывает на home!!!
+	todo : 	Сделать запред на ввод /login если авторизован.-->
 
-<button ng-click="out()">out</button>
+<div class="container">
+	<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+	<header class="header masthead mb-auto">
+		<control-panel ng-if="isAuth()"></control-panel>
+	</header>
+	<section ui-view></section>
+	<footer class="text-center mastfoot mt-auto">
+		<div class="inner">
+			<p>App create by <a href="#">@evgennikolenko</a>.</p>
+		</div>
+	</footer>
+	</div>
+</div>
 
-<section ui-view></section>
-
+<!-- SCRIPTS -->
+<!--todo: 	Соеденить в один!-->
 <script src="js/library/angular.min.js"></script>
 <script src="js/library/angular-ui-router.js"></script>
 <script src="js/library/firebase.js"></script>
@@ -20,24 +48,12 @@
 <script src="js/library/initFirebase.js"></script>
 
 <script src="js/app/app.js"></script>
-<script src="js/app/controllers/start-page/startPage.js"></script>
+<script src="controllers/start-page/startPage.js"></script>
 <script src="js/app/directive/startButtons/start-buttons.js"></script>
-<script src="js/app/controllers/login/login.js"></script>
-<script src="js/app/controllers/home/home.js"></script>
-<script src="js/app/controllers/create-account/createAccount.js"></script>
+<script src="controllers/login/login.js"></script>
+<script src="controllers/home/home.js"></script>
+<script src="controllers/create-account/createAccount.js"></script>
 <script src="js/app/service/loginService.js"></script>
-<script>
-
-    angular.module('phoneBookApp').controller('MainCtrl', function ($scope, loginService, $rootScope, $state) {
-        $scope.val = loginService.isAuth();
-        $scope.out = function() {
-            loginService.signOut();
-
-        };
-        console.log('dd', $scope.val );
-//        console.log('ss', loginService.getUser());
-    })
-</script>
-
+<script src="js/app/directive/controlPanel/control-panel.js"></script>
 </body>
 </html>
