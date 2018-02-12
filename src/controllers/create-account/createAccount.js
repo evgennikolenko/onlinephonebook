@@ -24,7 +24,6 @@ function createAccountCtrl(loginService) {
 
 
     create.getUser = loginService.getUser();
-    console.log('user',   create.getUser);
 }
 
 Config.$inject = ['$stateProvider', '$urlRouterProvider'];
