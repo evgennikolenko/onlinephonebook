@@ -1,2 +1,4 @@
-<div style="display: inline-block">{{controlPanel.currentUserName}}</div>
-<button class="btn-danger" ng-click="controlPanel.signOut()">out</button>
+<div class="control-panel__inner">
+	<div class="control-panel__displayName">{{controlPanel.currentUserName}}</div>
+	<button class="btn btn-outline-dark btn-sm control-panel__exit-button" ng-click="controlPanel.signOut()">out</button>
+</div>

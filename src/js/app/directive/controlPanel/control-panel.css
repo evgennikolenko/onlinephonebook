@@ -1,0 +1,20 @@
+.control-panel__inner{
+    display: inline-block;
+    width: auto;
+    height: 50%;
+    float: right;
+}
+
+.control-panel__displayName{
+    display: inline-block;
+    margin: auto;
+    padding-right: 15px;
+    border-right: 2px solid #425232;
+}
+
+.control-panel__exit-button{
+    width: 50px;
+    height: 24px;
+    padding-top: 0;
+    margin-top: -2px;
+}
