@@ -29,6 +29,13 @@ function Config($stateProvider, $urlRouterProvider) {
         url: "/phonebook/login",
         templateUrl: 'controllers/login/login.html',
         resolve: {
+            auth: function ($q, $state, loginService) {
+                if (loginService.getUser() !== null) {
+                    $q.reject();
+                    alert('Вы уже авторизированы!');
+                    $state.go('home');
+                }
+            }
         },
         controllerAs: 'login',
         controller: 'loginCtrl'
