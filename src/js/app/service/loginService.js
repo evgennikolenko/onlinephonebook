@@ -4,23 +4,34 @@
 angular.module('phoneBookApp')
     .service('loginService', loginService);
 
-function loginService($state, $rootScope, $firebaseAuth) {
+function loginService($state, $rootScope, $firebaseAuth, phonebookDatebaseService) {
 
     var self = this;
-
-
-//     console.log(firebaseUser);
-
-
+    
     self.createAccount = function (objPassAndEmail) {
         firebase.auth().createUserWithEmailAndPassword(objPassAndEmail.email, objPassAndEmail.password)
-            .then(function(user) {
-                console.log("Signed in as:", user.uid);
-                // $rootScope.flagNotSignIn = false;
+            // .then(function(user) {
+            //     console.log("Signed in as:", user.uid);
+            //     console.log(phonebookDatebaseService);
+            //     // $rootScope.flagNotSignIn = false;
+            //     user.updateProfile({
+            //         displayName: objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName
+            //     });
+            //     console.log("Signed in as:", user.displayName);
+            //     phonebookDatebaseService.createUserRoom(user.uid);
+            //
+            // })
+            .then(function () {
+               var user = firebase.auth().currentUser;
                 user.updateProfile({
-                    displayName: objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName
+                    displayName:   objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName
+                }).then(function () {
+                    console.log("Signed in as:", user);
+                    console.log("Signed in ass:", user.displayName);
+                    console.log("Signed in ass:", user.uid);
+                    phonebookDatebaseService.createUserRoom(user.uid);
+                    $state.go('home');
                 });
-                $state.go('home');
             })
        .catch(function(error) {
             console.error("Authentication failed:", error);
