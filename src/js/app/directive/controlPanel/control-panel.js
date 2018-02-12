@@ -7,7 +7,9 @@ angular.module('phoneBookApp')
             restrict: 'AE',
             transclude: true,
             templateUrl: 'js/app/directive/controlPanel/control-panel.html',
-            // link : {},
+            // link : {
+            //
+            // },
             bindToController: true,
             controller: function (loginService) {
                 this.currentUserName = firebase.auth().currentUser.displayName;

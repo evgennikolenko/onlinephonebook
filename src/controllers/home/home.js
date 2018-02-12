@@ -15,8 +15,8 @@ function homeCtrl(loginService) {
        home.email = user.email;
     };
     home.authObj = loginService.isAuth();
-    home.currentUserName = firebase.auth().currentUser.displayName;
-    // console.log( home.authObj);
+    home.currentUserName =  firebase.auth().currentUser.displayName;
+    console.log("NAME");
 
 }
 
