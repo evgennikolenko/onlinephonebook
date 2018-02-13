@@ -4,9 +4,10 @@
 angular.module('phoneBookApp', ['ui.router',
                                 'firebase',
                                 'phoneBookApp.startPage',
-                                'phoneBookApp.login',
-                                'phoneBookApp.createAccount',
-                                'phoneBookApp.home']);
+                                    'phoneBookApp.login',
+                                    'phoneBookApp.createAccount',
+                                    'phoneBookApp.home',
+                                        'phoneBookApp.phonebook']);
 
 angular.module('phoneBookApp')
     .run(function ($rootScope, loginService) {

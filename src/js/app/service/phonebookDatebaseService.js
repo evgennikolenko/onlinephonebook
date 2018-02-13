@@ -16,5 +16,15 @@ function phonebookDatebaseService($state, $rootScope) {
             lastname: userLastName,
             phone: userPhone
         });
+    };
+
+
+    this.addUserCard = function (uid, userData) {
+        var ref = firebase.database().ref();
+        var refObj = ref.child('phonesbook/authUsers/' + uid + '/userCard/');
+        refObj.push(userData);
+        console.log('red', refObj);
+        console.log('userData', userData);
+        console.log('uid', uid);
     }
 }

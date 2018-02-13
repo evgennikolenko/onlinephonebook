@@ -1,0 +1,9 @@
+<h1>Phones</h1>
+
+<button ng-click="phonebook.showModalAddCard()">Добавить</button>
+
+<form ng-if="phonebook.showModal" ng-submit="phonebook.addUserCard()">
+	<input type="text" ng-model="phonebook.objUserAdd.firstname">
+	<input type="text" ng-model="phonebook.objUserAdd.lastname">
+	<button>Добавить</button>
+</form>
