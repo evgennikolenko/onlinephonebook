@@ -1,14 +1,65 @@
 <div class="create-form">
-<form class="text-center form-signin" ng-submit='create.createUser()'>
-	<h1 class="h3 mb-3 font-weight-normal">Input data</h1>
-	<!--<label for="create.objRegistrationData.userName">Введите имя:</label>-->
-	<input class="create-form__input form-control" placeholder="Input first name" type="text" ng-model="create.objRegistrationData.userFirstName">
-	<input class="create-form__input form-control" placeholder="Input last name" type="text" ng-model="create.objRegistrationData.userLastName">
-	<!--<label for="login.objRegistrationData.password">Введите почту:</label>-->
-	<input class="create-form__input form-control" placeholder="Input email" type="email" ng-model="create.objRegistrationData.email">
-	<!--<label for="login.objRegistrationData.password">Введите пароль:</label>-->
-	<input class="create-form__input form-control" placeholder="Input password" type="password" ng-model="create.objRegistrationData.password">
+<form class="form-signin" ng-submit='create.createUser()'>
+	<div class="form-row">
+		<div class="col-md-4 mb-3">
+			<label for="validationDefault01">Имя</label>
+			<input type="text" ng-model="create.objRegistrationData.userFirstName"
+				   class="form-control" id="validationDefault01" placeholder="Имя" value="Mark" required>
+		</div>
+		<div class="col-md-4 mb-3">
+			<label for="validationDefault02">Фамилия</label>
+			<input type="text" ng-model="create.objRegistrationData.userLastName"
+				   class="form-control" id="validationDefault02" placeholder="Фамилия" value="Otto" required>
+		</div>
+		<div class="col-md-4 mb-3">
+			<label for="validationDefaultUsername">Телефон пользователя</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroupPrepend2">+</span>
+				</div>
+				<input type="text" 	ng-model="create.objRegistrationData.userPhone"
+					   class="form-control" id="validationDefaultUsername" placeholder="Телефон пользователя" aria-describedby="inputGroupPrepend2" required>
+			</div>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-md-6 mb-3">
+			<label for="validationDefault03">email</label>
+			<input type="text" class="form-control"
+				   ng-model="create.objRegistrationData.email" id="validationDefault03" placeholder="email" required>
+		</div>
+		<div class="col-md-3 mb-3">
+			<label for="validationDefault04">password</label>
+			<input type="text" class="form-control" id="validationDefault04"
+				   ng-model="create.objRegistrationData.password" required>
+		</div>
+		<div class="col-md-3 mb-3">
+			<label for="validationDefault05">repeat password</label>
+			<input type="text" class="form-control" id="validationDefault05" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+			<label class="form-check-label" for="invalidCheck2">
+				Agree to terms and conditions
+			</label>
+		</div>
+	</div>
 	<button class="login-form__create-btn btn btn-lg btn-success btn-block">Зарегистрироваться!</button>
+
+
+
+	<!---->
+	<!--<h1 class="h3 mb-3 font-weight-normal">Input data</h1>-->
+	<!--&lt;!&ndash;<label for="create.objRegistrationData.userName">Введите имя:</label>&ndash;&gt;-->
+	<!--<input class="create-form__input form-control" placeholder="Input first name" type="text" ng-model="create.objRegistrationData.userFirstName">-->
+	<!--<input class="create-form__input form-control" placeholder="Input last name" type="text" ng-model="create.objRegistrationData.userLastName">-->
+	<!--&lt;!&ndash;<label for="login.objRegistrationData.password">Введите почту:</label>&ndash;&gt;-->
+	<!--<input class="create-form__input form-control" placeholder="Input email" type="email" ng-model="create.objRegistrationData.email">-->
+	<!--&lt;!&ndash;<label for="login.objRegistrationData.password">Введите пароль:</label>&ndash;&gt;-->
+	<!--<input class="create-form__input form-control" placeholder="Input password" type="password" ng-model="create.objRegistrationData.password">-->
+	<!--<button class="login-form__create-btn btn btn-lg btn-success btn-block">Зарегистрироваться!</button>-->
 </form>
 
 </div>
