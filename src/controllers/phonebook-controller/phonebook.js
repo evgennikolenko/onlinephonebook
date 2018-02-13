@@ -23,10 +23,17 @@ function phonebookCtrl(phonebookDatebaseService) {
     };
 
     phonebook.addUserCard = function () {
-        var uid = firebase.auth().currentUser.uid;
-        phonebookDatebaseService.addUserCard(uid, phonebook.objUserAdd);
+
+        phonebookDatebaseService.addUserCard(phonebook.objUserAdd);
+        phonebook.showModal = false;
     };
 
+    // phonebook.loadUserCard = function () {
+        phonebookDatebaseService.loadUserCard().then(function (userCard) {
+            phonebook.list = userCard
+            console.log('tt', userCard);
+        });
+    // }
 
 }
 

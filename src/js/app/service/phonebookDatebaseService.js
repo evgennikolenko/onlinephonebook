@@ -6,7 +6,7 @@ phonebookDatebaseService
 angular.module('phoneBookApp')
     .service('phonebookDatebaseService', phonebookDatebaseService);
 
-function phonebookDatebaseService($state, $rootScope) {
+function phonebookDatebaseService($state, $rootScope, $firebaseObject) {
     // Get a reference to the database service
     var database = firebase.database();
 
@@ -19,12 +19,30 @@ function phonebookDatebaseService($state, $rootScope) {
     };
 
 
-    this.addUserCard = function (uid, userData) {
-        var ref = firebase.database().ref();
-        var refObj = ref.child('phonesbook/authUsers/' + uid + '/userCard/');
-        refObj.push(userData);
-        console.log('red', refObj);
+    var ref = firebase.database().ref();
+
+    this.addUserCard = function (userData) {
+        var uid = firebase.auth().currentUser.uid;
+        var refUserCard = ref.child('phonesbook/authUsers/' + uid + '/userCard/');
+        refUserCard.push(userData);
+        console.log('red', refUserCard);
         console.log('userData', userData);
         console.log('uid', uid);
+    };
+
+    this.loadUserCard = function (data) {
+        // var self = this;
+
+        var uid = firebase.auth().currentUser.uid;
+        var refUserCard = $firebaseObject(ref.child('phonesbook/authUsers/' + uid + '/userCard/'));
+        return refUserCard.$loaded(data)
+        // var uid = firebase.auth().currentUser.uid;
+        // var starCountRef = firebase.database().ref('phonesbook/authUsers/' + uid + '/userCard/');
+        // starCountRef.on('value', function(snapshot) {
+        //     console.log('snapshot', snapshot.val());
+        //    // return snapshot.val();
+        //     updateStarCount(postElement, snapshot.val());
+        // });
+
     }
 }
