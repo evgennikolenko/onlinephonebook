@@ -26,7 +26,7 @@ Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Config($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: "/phonebook/home",
-        templateUrl: 'controllers/home/home.html',
+        templateUrl: 'controllers/basic-controllers/home/home.html',
         resolve: {
             auth: function ($q, $state, loginService) {
                 console.log('RRR', loginService.getUser());
