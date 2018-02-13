@@ -7,7 +7,7 @@ angular.module('phoneBookApp')
 function loginService($state, $rootScope, $firebaseAuth, phonebookDatebaseService) {
 
     var self = this;
-    
+
     self.createAccount = function (objPassAndEmail) {
         firebase.auth().createUserWithEmailAndPassword(objPassAndEmail.email, objPassAndEmail.password)
             // .then(function(user) {
@@ -24,12 +24,15 @@ function loginService($state, $rootScope, $firebaseAuth, phonebookDatebaseServic
             .then(function () {
                var user = firebase.auth().currentUser;
                 user.updateProfile({
-                    displayName:   objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName
+                    displayName:   objPassAndEmail.userFirstName + ' ' + objPassAndEmail.userLastName,
+                    phoneNumber :  objPassAndEmail.userPhone
+
                 }).then(function () {
                     console.log("Signed in as:", user);
                     console.log("Signed in ass:", user.displayName);
-                    console.log("Signed in ass:", user.uid);
-                    phonebookDatebaseService.createUserRoom(user.uid);
+                    console.log("Signed in ass:", objPassAndEmail.userFirstName);
+                    phonebookDatebaseService.createUserRoom(user.uid, objPassAndEmail.userFirstName,
+                        objPassAndEmail.userLastName , objPassAndEmail.userPhone) ;
                     $state.go('home');
                 });
             })
