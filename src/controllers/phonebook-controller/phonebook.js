@@ -19,21 +19,22 @@ function phonebookCtrl(phonebookDatebaseService) {
 
     phonebook.objUserAdd = {
         firstname: '',
-        lastname: ''
+        lastname: '',
+        address: '',
+        email: '',
+        phone1: '',
+        phone2: ''
     };
 
     phonebook.addUserCard = function () {
-
         phonebookDatebaseService.addUserCard(phonebook.objUserAdd);
         phonebook.showModal = false;
     };
 
-    // phonebook.loadUserCard = function () {
         phonebookDatebaseService.loadUserCard().then(function (userCard) {
-            phonebook.list = userCard
-            console.log('tt', userCard);
+            phonebook.list = userCard;
+            phonebook.myData = phonebook.list.pop();
         });
-    // }
 
 }
 
