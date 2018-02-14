@@ -6,7 +6,7 @@ phonebookDatebaseService
 angular.module('phoneBookApp')
     .service('phonebookDatebaseService', phonebookDatebaseService);
 
-function phonebookDatebaseService($state, $rootScope, $firebaseObject) {
+function phonebookDatebaseService($state, $rootScope, $firebaseArray) {
     // Get a reference to the database service
     var database = firebase.database();
 
@@ -34,7 +34,7 @@ function phonebookDatebaseService($state, $rootScope, $firebaseObject) {
         // var self = this;
 
         var uid = firebase.auth().currentUser.uid;
-        var refUserCard = $firebaseObject(ref.child('phonesbook/authUsers/' + uid + '/userCard/'));
+        var refUserCard = $firebaseArray(ref.child('phonesbook/authUsers/' + uid + '/userCard/'));
         return refUserCard.$loaded(data)
         // var uid = firebase.auth().currentUser.uid;
         // var starCountRef = firebase.database().ref('phonesbook/authUsers/' + uid + '/userCard/');
