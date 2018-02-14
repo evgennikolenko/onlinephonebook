@@ -1,0 +1,37 @@
+.userCard__wrap{
+    display: inline-block;
+    width: 46%;
+    height: 250px;
+    border: 1px solid #1c7430;
+    margin-right: 3%;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 13px;
+    margin-bottom: 15px;
+
+}
+
+.userCard__header{
+    width: 100%;
+    height: 35px;
+    background: #28a745;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+
+}
+
+.userCard__avatar{
+    display: inline-block;
+    width: 30%;
+    height: 215px;
+    background: peru;
+}
+
+.userCard__info{
+    float: right;
+    width: 69%;
+    height: 215px;
+
+}

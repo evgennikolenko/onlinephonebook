@@ -5,10 +5,32 @@
 		<div class="userCard__avatar-photo"></div>
 	</div>
 	<div class="userCard__info">
-		<div class="userCard__name">{{list.firstname}} {{list.lastname}}</div>
-		<div class="userCard__address">{{list.address}}</div>
-		<div class="userCard__email">{{list.email}}</div>
-		<div class="userCard__phone1">{{list.phone1}}</div>
-		<div class="userCard__phone2">{{list.phone2}}</div>
+		<div class="userCard__name">
+			<div class="row">
+				<div class="col-5">Имя и фамилия: </div>
+				<div class="col-7">{{list.firstname}} {{list.lastname}}</div>
+			</div>
+			<div class="row">
+				<div class="col-5">Адресс: : </div>
+				<div class="col-7">{{list.address}}</div>
+			</div>
+			<div class="row">
+				<div class="col-5">Почта: </div>
+				<div class="col-7">{{list.email}}</div>
+			</div>
+			<div class="row">
+				<div class="col-5">Телефон № 1: </div>
+				<div class="col-7">{{list.phone1}}</div>
+			</div>
+			<div class="row">
+				<div class="col-5">Телефон № 2: </div>
+				<div class="col-7">{{list.phone2}}</div>
+			</div>
+			</div>
+
+		<!--<div class="userCard__address"></div>-->
+		<!--<div class="userCard__email">}</div>-->
+		<!--<div class="userCard__phone1"></div>-->
+		<!--<div class="userCard__phone2">{{list.phone2}}</div>-->
 	</div>
 </div>
