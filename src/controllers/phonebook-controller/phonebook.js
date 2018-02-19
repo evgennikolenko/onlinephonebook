@@ -28,12 +28,18 @@ function phonebookCtrl(phonebookDatebaseService) {
 
     phonebook.addUserCard = function () {
         phonebookDatebaseService.addUserCard(phonebook.objUserAdd);
+
         phonebook.showModal = false;
+    };
+    phonebook.closeModalWindow = function () {
+        $(".modal-body form input").val("");
     };
 
         phonebookDatebaseService.loadUserCard().then(function (userCard) {
             phonebook.list = userCard;
+            console.log("TT", phonebook.list);
             phonebook.myData = phonebook.list.pop();
+            console.log("TTx", phonebook.myData);
         });
 
 }
