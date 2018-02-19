@@ -7,10 +7,10 @@
     border-top-right-radius: 13px;
     border-top-left-radius: 13px;
     margin-bottom: 15px;
-
 }
 
 .userCard__header{
+    position: relative;
     width: 100%;
     height: 35px;
     background: #28a745;
@@ -18,20 +18,42 @@
     -moz-border-radius-topright: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+}
 
-
+.userCard__closeBut{
+    width: 25px;
+    height: 25px;
+    background: yellow;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
 }
 
 .userCard__avatar{
     display: inline-block;
+    position: relative;
     width: 30%;
     height: 215px;
-    background: peru;
 }
 
 .userCard__info{
     float: right;
     width: 69%;
     height: 215px;
+}
+.userCard__row{
+    margin-top: 15px;
+}
 
+.userCard__avatar-photo{
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    background: goldenrod;
+    position: absolute;
+    left: 50%;
+    margin-left: -56px;
+    margin-top: -90px;
+    border-radius: 50px;
 }
