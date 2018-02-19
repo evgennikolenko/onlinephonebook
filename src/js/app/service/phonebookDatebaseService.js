@@ -1,7 +1,7 @@
 /**
  * Created by evgen on 12.02.18.
  */
-phonebookDatebaseService
+
 
 angular.module('phoneBookApp')
     .service('phonebookDatebaseService', phonebookDatebaseService);
@@ -25,9 +25,24 @@ function phonebookDatebaseService($state, $rootScope, $firebaseArray) {
         var uid = firebase.auth().currentUser.uid;
         var refUserCard = ref.child('phonesbook/authUsers/' + uid + '/userCard/');
         refUserCard.push(userData);
-        console.log('red', refUserCard);
+        console.debug('red', refUserCard);
         console.log('userData', userData);
         console.log('uid', uid);
+
+        // ref.child('phonesbook/authUsers/' + uid + '/userCard').on("value", function(snapshot) {
+        //     // storing the snapshot.val() in a variable for convenience
+        //
+        //     var sv = snapshot.val();
+        //     console.log("sv " + sv); //returns [obj obj]
+        //
+        //     // Getting an array of each key in the snapshot object
+        //     var svArr = Object.keys(sv);
+        //     console.log("svArr " + svArr); // [key1, key2, ..., keyn]
+        //     // Console.log name of first key
+        //     console.log(svArr[svArr.length-2]);
+        // }, function(errorObject) {
+        //     console.log("Errors handled: " + errorObject.code);
+        // });
     };
 
     this.loadUserCard = function (data) {
