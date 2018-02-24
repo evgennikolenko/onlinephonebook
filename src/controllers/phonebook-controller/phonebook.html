@@ -1,20 +1,10 @@
-<user-card ng-repeat="list in phonebook.list"></user-card>
-<button ng-click="phonebook.showModalAddCard()">Добавить</button>
-
-<form ng-if="phonebook.showModal" ng-submit="phonebook.addUserCard()">
-	<input type="text" ng-model="phonebook.objUserAdd.firstname">
-	<input type="text" ng-model="phonebook.objUserAdd.lastname">
-	<input type="text" ng-model="phonebook.objUserAdd.address">
-	<input type="text" ng-model="phonebook.objUserAdd.email">
-	<input type="text" ng-model="phonebook.objUserAdd.phone1">
-	<input type="text" ng-model="phonebook.objUserAdd.phone2">
-	<button>Добавить</button>
-</form>
-
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button ng-click="phonebook.openModal()"
+		type="button" class="phonebook-btn__showmodal btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
 	Create User card
 </button>
+
+<user-card ng-repeat="list in phonebook.list"></user-card>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
