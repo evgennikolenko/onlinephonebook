@@ -1,0 +1,29 @@
+.userroom__inner{
+    width: 650px;
+    background: yellow;
+    margin: 10% auto;
+    position: relative;
+}
+
+.userroom__btn-phonebook{
+    width: 230px;
+    height: 230px;
+    background: green url(../../../phonebook.png) no-repeat;
+    background-size: 230px 230px;
+    border-radius: 150px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+.userroom__btn-inTodo{
+    display: inline-block;
+    width: 230px;
+    height: 230px;
+    background: green url(../../../inTodo.jpg) no-repeat;
+    background-size: cover;
+    border-radius: 150px;
+    position: absolute;
+    right: 0;
+
+}
