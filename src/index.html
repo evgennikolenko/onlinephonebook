@@ -17,23 +17,25 @@
 	<link rel="stylesheet" href="controllers/basic-controllers/start-page/startPage.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="controllers/basic-controllers/login/login.css">
+	<link rel="stylesheet" href="controllers/basic-controllers/home/home.css">
+
 	<link rel="stylesheet" href="controllers/basic-controllers/create-account/createAccount.css">
 	<link rel="stylesheet" href="js/app/directive/controlPanel/control-panel.css">
 	<link rel="stylesheet" href="js/app/directive/userCard/user-card.css">
-	<script src="controllers/phonebook-controller/phonebook.css"></script>
+	<link rel="stylesheet" href="js/app/directive/windowAddCard/window-addCard.css">
+	<link rel="stylesheet" href="controllers/phonebook-controller/phonebook.css">
+
 </head>
 
 <body>
-<!--todo: 	Не выйдя из акка и закрыв вкладку, при новом заходе на /phonebook (открыв наново вкладку)
-	todo: 	не перебрасывает на home!!!
-	todo : 	Сделать запред на ввод /login если авторизован.-->
+
 
 <div class="container">
 	<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-	<header class="header masthead mb-auto">
+	<header class="header" style="margin-bottom: 25px">
 		<control-panel ng-if="isAuth()"></control-panel>
 	</header>
-	<section ui-view></section>
+	<section class="section__view" ui-view></section>
 	<footer class="text-center mastfoot mt-auto">
 		<div class="inner">
 			<p>App create by <a href="#">@evgennikolenko</a>.</p>
@@ -63,8 +65,11 @@
 <script src="js/app/service/loginService.js"></script>
 <script src="js/app/directive/controlPanel/control-panel.js"></script>
 <script src="js/app/directive/userCard/user-card.js"></script>
+<script src="js/app/directive/windowAddCard/window-addCard.js"></script>
 <script src="js/app/service/phonebookDatebaseService.js"></script>
 <script src="controllers/phonebook-controller/phonebook.js"></script>
+
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
