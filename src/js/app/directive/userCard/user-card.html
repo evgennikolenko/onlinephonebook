@@ -1,10 +1,14 @@
 
 <div class="userCard__wrap">
-	<div class="userCard__header">{{test1}}
+	<div class="userCard__header">
 		<div class="userCard__closeBut" ng-click="onDeleteCard()">X</div>
 	</div>
 	<div class="userCard__avatar">
-		<div class="userCard__avatar-photo"></div>
+		<div class="userCard__avatar-photo" style="background: {{'#' + list.avatar}}">
+			<div class="avatar-photo__symbol">
+				{{list.firstname | limitTo: 1}}
+			</div>
+		</div>
 	</div>
 	<div class="userCard__info">
 		<div class="userCard__name">

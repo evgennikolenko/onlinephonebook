@@ -14,7 +14,7 @@ angular.module('phoneBookApp')
             // },
             replace: true,
             link: function(scope, element, attrs, controller) {
-
+                console.log('elem', element);
                 scope.onDeleteCard = function () {
                     element.fadeOut();
 
