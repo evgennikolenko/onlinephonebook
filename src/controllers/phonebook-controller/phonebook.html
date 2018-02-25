@@ -7,25 +7,77 @@
 <user-card ng-repeat="list in phonebook.list"></user-card>
 
 <!-- Modal -->
+
+<!--todo: Закрывать модальное окно при добавлении карточки-->
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header text-center">
 				<h5 class="modal-title" id="exampleModalLongTitle">Create user card</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<form ng-submit="phonebook.addUserCard()">
-					Name<input type="text" ng-model="phonebook.objUserAdd.firstname">
-					Lastname<input type="text" ng-model="phonebook.objUserAdd.lastname">
-					Address<input type="text" ng-model="phonebook.objUserAdd.address">
-					Email<input type="text" ng-model="phonebook.objUserAdd.email">
-					phone1<input type="text" ng-model="phonebook.objUserAdd.phone1">
-					phone2<input type="text" ng-model="phonebook.objUserAdd.phone2">
+				<form name="addCardForm" class="addCardForm" novalidate>
+
+					<div class="modal-body__input-wrapper">
+						<label>Name</label>
+						<input type="text" name="firstname" ng-model="phonebook.objUserAdd.firstname"
+							 placeholder="Alex"  ng-pattern="/[A-ZА-Я]{1}[a-zа-я]/" required>
+						<span ng-show="addCardForm.firstname.$error.required" class="modal-body__input-error">*</span>
+						<span ng-show="addCardForm.firstname.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<span ng-show="addCardForm.firstname.$valid" class="modal-body__input-success">&#10004;</span>
+					</div>
+
+
+					<div class="modal-body__input-wrapper">
+						<label>Lastname</label>
+						<input type="text" name="lastname" ng-model="phonebook.objUserAdd.lastname"
+							   placeholder="Gow"  ng-pattern="/[A-ZА-Я]{1}[a-zа-я]/" required>
+						<span ng-show="addCardForm.lastname.$error.required" class="modal-body__input-error">*</span>
+						<span ng-show="addCardForm.lastname.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<span ng-show="addCardForm.lastname.$valid" class="modal-body__input-success">&#10004;</span>
+					</div>
+
+					<div class="modal-body__input-wrapper">
+						<label>Address</label>
+						<input type="text"  placeholder="Address"  ng-model="phonebook.objUserAdd.address">
+						<span ng-show="addCardForm.address.$valid" class="modal-body__input-success">&#10004;</span>
+					</div>
+
+					<div class="modal-body__input-wrapper">
+						<label>Email</label>
+						<input type="email" name="email" ng-model="phonebook.objUserAdd.email"
+							   placeholder="alexAA@example.com" required>
+							  <!--ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@example\.com$/i" -->
+						<span ng-show="addCardForm.email.$error.required" class="modal-body__input-error">*</span>
+						<span ng-show="addCardForm.email.$error.email" class="modal-body__input-errorMess alert-danger" >Enter a valid email</span>
+						<span ng-show="addCardForm.email.$valid" class="modal-body__input-success">&#10004;</span>
+					</div>
+
+					<div class="modal-body__input-wrapper">
+						<label>phone1</label>
+						<input type="text" name="phone1" ng-model="phonebook.objUserAdd.phone1"
+							   placeholder="380951894552"  ng-pattern="/[0-9]/" required>
+						<span ng-show="addCardForm.phone1.$error.required" class="modal-body__input-error">*</span>
+						<span ng-show="addCardForm.phone1.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<span ng-show="addCardForm.phone1.$valid" class="modal-body__input-success">&#10004;</span>
+					</div>
+
+					<div class="modal-body__input-wrapper">
+						<label>phone2</label>
+						<input type="text" name="phone2" ng-model="phonebook.objUserAdd.phone2"
+							   ng-pattern="/[0-9]/">
+						<span ng-show="addCardForm.phone2.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<!--<span ng-show="addCardForm.phone2.$valid" class="modal-body__input-success">&#10004;</span>-->
+					</div>
+
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button class="addCardButton btn btn-success" ng-click="phonebook.closeModalWindow()">Добавить</button>
+					<button  type="submit" class="addCardButton btn btn-success"
+							 ng-disabled="addCardForm.$invalid"
+							ng-click="phonebook.addUserCard()">Добавить</button>
 				</form>
 			</div>
 		</div>
