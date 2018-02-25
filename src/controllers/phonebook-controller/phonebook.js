@@ -4,6 +4,7 @@
 /**
  * Created by evgen on 07.02.18.
  */
+
 angular.module('phoneBookApp.phonebook', ['ui.router']);
 
 angular.module('phoneBookApp.phonebook')
@@ -14,6 +15,7 @@ function phonebookCtrl(phonebookDatebaseService) {
 
     var phonebook = this;
 
+    phonebook.showModal = true;
     /*
     * Function start when the button 'openModal' is pressed;
     * 'avatarColor' choose a color for avatar;
@@ -46,15 +48,9 @@ function phonebookCtrl(phonebookDatebaseService) {
      */
     phonebook.addUserCard = function () {
         phonebookDatebaseService.addUserCard(phonebook.objUserAdd);
-    };
-
-    /*
-     *  Clear the form after created user
-     */
-    phonebook.closeModalWindow = function () {
         $(".modal-body form input").val("");
     };
-
+    
     /*
      * Load data from database - 'loadUserCard()';
      * 'phonebookDatebaseService' - service for work with database;
@@ -66,7 +62,6 @@ function phonebookCtrl(phonebookDatebaseService) {
             phonebook.myData = phonebook.list.pop();
         });
 }
-
 
 
 Config.$inject = ['$stateProvider'];
