@@ -2,3 +2,45 @@
     display: block;
     margin-bottom: 20px;
 }
+
+.modal-title{
+    width: 100% !important;
+}
+
+.addCardForm{
+    padding-left: 50px;
+}
+
+.modal-body__input-wrapper{
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.modal-body__input-wrapper input{
+    position: absolute;
+    right: 110px;
+}
+
+.modal-body__input-error{
+    position: absolute;
+    right: 90px;
+    color: red;
+}
+
+.modal-body__input-errorMess{
+    position: absolute;
+    right: 200px;
+    top: 32px;
+    font-size: 12px;
+}
+
+
+.modal-body__input-success{
+    color: green;
+    position: absolute;
+    right: 90px;
+}
+
+.addCardForm input.ng-valid.ng-dirty {
+    background-color: #bee4c7;
+}
