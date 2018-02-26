@@ -1,10 +1,21 @@
-<!-- Button trigger modal -->
-<button ng-click="phonebook.openModal()"
-		type="button" class="phonebook-btn__showmodal btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-	Create User card
-</button>
+<div class="phonebook__controlPanel">
+	<!-- Button trigger modal -->
+	<button ng-click="phonebook.openModal()"
+			type="button" class="phonebook-btn__showmodal btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+		Create User card
+	</button>
 
-<user-card ng-repeat="list in phonebook.list"></user-card>
+	<button class="phonebook-btn__chooseTemp-card btn btn-warning" ng-click="phonebook.showToCard()">Card</button>
+	<button class="phonebook-btn__chooseTemp-list btn btn-warning" ng-click="phonebook.showToList()">List</button>
+</div>
+
+
+
+
+	<user-card ng-if="phonebook.showCard" ng-repeat="list in phonebook.list"></user-card>
+	<user-list ng-if="phonebook.showList" ng-repeat="list in phonebook.list"></user-list>
+
+
 
 <!-- Modal -->
 
@@ -59,18 +70,18 @@
 
 					<div class="modal-body__input-wrapper">
 						<label>phone1</label>
-						<input type="text" name="phone1" ng-model="phonebook.objUserAdd.phone1"
+						<input type="text" name="phone" ng-model="phonebook.objUserAdd.phone"
 							   placeholder="380951894552"  ng-pattern="/[0-9]/" required>
-						<span ng-show="addCardForm.phone1.$error.required" class="modal-body__input-error">*</span>
-						<span ng-show="addCardForm.phone1.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
-						<span ng-show="addCardForm.phone1.$valid" class="modal-body__input-success">&#10004;</span>
+						<span ng-show="addCardForm.phone.$error.required" class="modal-body__input-error">*</span>
+						<span ng-show="addCardForm.phone.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<span ng-show="addCardForm.phone.$valid" class="modal-body__input-success">&#10004;</span>
 					</div>
 
 					<div class="modal-body__input-wrapper">
-						<label>phone2</label>
-						<input type="text" name="phone2" ng-model="phonebook.objUserAdd.phone2"
+						<label>Skype</label>
+						<input type="text" name="skype" ng-model="phonebook.objUserAdd.skype"
 							   ng-pattern="/[0-9]/">
-						<span ng-show="addCardForm.phone2.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
+						<span ng-show="addCardForm.skype.$error.pattern" class="alert-danger modal-body__input-errorMess">nedopustim format</span>
 						<!--<span ng-show="addCardForm.phone2.$valid" class="modal-body__input-success">&#10004;</span>-->
 					</div>
 
