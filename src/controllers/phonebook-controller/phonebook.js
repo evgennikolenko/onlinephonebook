@@ -15,7 +15,24 @@ function phonebookCtrl(phonebookDatebaseService) {
 
     var phonebook = this;
 
-    phonebook.showModal = true;
+    //
+    // phonebook.showModal = true;
+
+    /*
+     * This code choose a template depending on the chosen option
+     */
+    phonebook.showCard = true;
+
+    phonebook.showToCard = function () {
+        phonebook.showCard = true;
+        phonebook.showList = false;
+    };
+    phonebook.showToList = function () {
+        phonebook.showCard = false;
+        phonebook.showList = true;
+    };
+
+
     /*
     * Function start when the button 'openModal' is pressed;
     * 'avatarColor' choose a color for avatar;
@@ -36,8 +53,8 @@ function phonebookCtrl(phonebookDatebaseService) {
            lastname: '',
            address: '',
            email: '',
-           phone1: '',
-           phone2: '',
+           phone: '',
+           skype: '',
            avatar: phonebook.avatar
        };
    };
@@ -50,7 +67,7 @@ function phonebookCtrl(phonebookDatebaseService) {
         phonebookDatebaseService.addUserCard(phonebook.objUserAdd);
         $(".modal-body form input").val("");
     };
-    
+
     /*
      * Load data from database - 'loadUserCard()';
      * 'phonebookDatebaseService' - service for work with database;
