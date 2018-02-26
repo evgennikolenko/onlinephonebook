@@ -1,0 +1,100 @@
+.user-list{
+    width: 80%;
+    margin: auto;
+    height: 100px;
+    position: relative;
+    margin-bottom: 25px;
+    border: 1px solid #1c7430;
+    border-radius: 10px;
+}
+
+.user-list__closeBut{
+    width: 25px;
+    height: 25px;
+    background: yellow;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.user-list__avatar{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.user-list__avatar-wrap{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -35px;
+    margin-left: -35px;
+    border-radius: 100px;
+}
+
+.user-list__infoNameBlock{
+    display: inline-block;
+    position: absolute;
+    height: 100px;
+    width: 43%;
+    float: left;
+
+}
+
+.user-list__name{
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.user-list__email{
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.user-list__symbol{
+    position: absolute;
+    top: 55%;
+    left: 51%;
+    margin-top: -25px;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.user-list__anotherInfoBlock{
+    display: inline-block;
+    position: absolute;
+    height: 100px;
+    width: 45%;
+    right: 0;
+}
+
+.user-list__address,
+.user-list__phone,
+.user-list__skype
+{
+
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.user-list__phone{
+
+}
+
+.user-list__skype{
+
+}

@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="user-list">
+	<div class="user-list__wrapper">
+		<div class="user-list__closeBut" ng-click="onDeleteCard()">X</div>
+		<div class="user-list__avatar">
+			<div class="user-list__avatar-wrap" style="background: {{'#' + list.avatar}}">
+				<div class="user-list__symbol">
+					{{list.firstname | limitTo: 1}}
+				</div>
+			</div>
+		</div>
+		<div class="user-list__infoNameBlock">
+			<div class="user-list__name">{{list.firstname}} {{list.lastname}}</div>
+			<div class="user-list__email">{{list.email}}</div>
+		</div>
+		<div class="user-list__anotherInfoBlock">
+			<div class="user-list__address">{{list.address}}</div>
+			<div class="user-list__phone">{{list.phone}}</div>
+			<div class="user-list__skype">{{list.skype}}</div>
+		</div>
+	</div>
+</div>
