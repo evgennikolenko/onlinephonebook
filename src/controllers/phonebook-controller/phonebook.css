@@ -11,17 +11,56 @@
     margin-bottom: 20px;
 }
 
+
+/* buttons that show a style of view --> card and list */
+
 .phonebook-btn__chooseTemp-card,
-.phonebook-btn__chooseTemp-list{
+.phonebook-btn__chooseTemp-list,
+.phonebook-btn-active__chooseTemp-card,
+.phonebook-btn-active__chooseTemp-list{
     display: inline-block;
+    width: 30px;
+    height: 30px;
     position: absolute;
     right: 0;
     margin-bottom: 20px;
+    cursor: pointer;
+    border: 1px solid #1c7430;
+}
+
+.phonebook-btn__chooseTemp-card:hover,
+.phonebook-btn__chooseTemp-list:hover{
+    -webkit-box-shadow: inset -2px -6px 20px -6px rgba(255,255,255,1);
+    -moz-box-shadow: inset -2px -6px 20px -6px rgba(255,255,255,1);
+    box-shadow: inset -2px -6px 20px -6px rgba(255,255,255,1);
 }
 
 .phonebook-btn__chooseTemp-card {
-    right: 60px;
+    right: 30px;
+    background: url("../../image/viewbuttons-showcards.png") -159px 0;
 }
+
+.phonebook-btn-active__chooseTemp-card {
+    right: 30px;
+    background: url("../../image/viewbuttons-showcards.png") -95px 0;
+}
+
+.phonebook-btn__chooseTemp-list{
+    background: url("../../image/viewbuttons-showcards.png") -3px 0;
+}
+
+.phonebook-btn-active__chooseTemp-list{
+    background: url("../../image/viewbuttons-showcards.png") -65px 0;
+}
+
+.phonebook-btn-active__chooseTemp-card:hover,
+.phonebook-btn-active__chooseTemp-list:hover{
+    -webkit-box-shadow: inset -9px -42px 58px -38px rgba(91,165,112,1);
+    -moz-box-shadow: inset -9px -42px 58px -38px rgba(91,165,112,1);
+    box-shadow: inset -9px -42px 58px -38px rgba(91,165,112,1);
+}
+
+/** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
 
 .modal-title{
     width: 100% !important;
@@ -53,7 +92,6 @@
     top: 32px;
     font-size: 12px;
 }
-
 
 .modal-body__input-success{
     color: green;
