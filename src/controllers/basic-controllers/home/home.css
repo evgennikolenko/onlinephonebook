@@ -8,7 +8,7 @@
 .userroom__btn-phonebook{
     width: 230px;
     height: 230px;
-    background: green url(../../../phonebook.png) no-repeat;
+    background: green url(../../../image/phonebook.png) no-repeat;
     background-size: 230px 230px;
     border-radius: 150px;
     display: inline-block;
@@ -20,7 +20,7 @@
     display: inline-block;
     width: 230px;
     height: 230px;
-    background: green url(../../../inTodo.jpg) no-repeat;
+    background: green url(../../../image/inTodo.jpg) no-repeat;
     background-size: cover;
     border-radius: 150px;
     position: absolute;
