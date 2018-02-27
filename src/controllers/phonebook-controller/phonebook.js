@@ -20,16 +20,22 @@ function phonebookCtrl(phonebookDatebaseService) {
 
     /*
      * This code choose a template depending on the chosen option
+     * jquery removeClass change style on selected button
      */
     phonebook.showCard = true;
+    $(".phonebook-btn__chooseTemp-card").removeClass('phonebook-btn__chooseTemp-card').addClass('phonebook-btn-active__chooseTemp-card');
 
     phonebook.showToCard = function () {
         phonebook.showCard = true;
         phonebook.showList = false;
+        $(".phonebook-btn__chooseTemp-card").removeClass('phonebook-btn__chooseTemp-card').addClass('phonebook-btn-active__chooseTemp-card');
+        $(".phonebook-btn-active__chooseTemp-list").removeClass('phonebook-btn-active__chooseTemp-list').addClass('phonebook-btn__chooseTemp-list')
     };
     phonebook.showToList = function () {
         phonebook.showCard = false;
         phonebook.showList = true;
+        $(".phonebook-btn__chooseTemp-list").removeClass('phonebook-btn__chooseTemp-list').addClass('phonebook-btn-active__chooseTemp-list');
+        $(".phonebook-btn-active__chooseTemp-card").removeClass('phonebook-btn-active__chooseTemp-card').addClass('phonebook-btn__chooseTemp-card')
     };
 
 
