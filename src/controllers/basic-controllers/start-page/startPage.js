@@ -18,13 +18,17 @@ function Config($stateProvider, $urlRouterProvider) {
         url: "/phonebook",
         templateUrl: 'controllers/basic-controllers/start-page/startPage.html',
         resolve: {
-            auth: function ($q, $state, loginService) {
-                console.log('RRR', loginService.getUser());
-                if (loginService.getUser() !== null) {
-                    $q.reject();
-                    alert('Вы авторизованы!');
-                    $state.go('home');
-                }
+            auth: function ($state) {
+                /*
+                 * Watch of user auth;
+                 * If return true --> redirect on page 'home'
+                 */
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        alert('Вы авторизованы!'); // debug. Soon will be deleted.
+                        $state.go('home');
+                    }
+                });
             }
         },
         controllerAs: 'startPage',

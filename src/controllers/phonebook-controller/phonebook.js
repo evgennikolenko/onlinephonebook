@@ -11,7 +11,7 @@ angular.module('phoneBookApp.phonebook')
     .config(Config)
     .controller('phonebookCtrl', phonebookCtrl);
 
-function phonebookCtrl(phonebookDatebaseService) {
+function phonebookCtrl(phonebookDatebaseService, $state) {
 
     var phonebook = this;
 
@@ -78,28 +78,47 @@ function phonebookCtrl(phonebookDatebaseService) {
      * Load data from database - 'loadUserCard()';
      * 'phonebookDatebaseService' - service for work with database;
      * 'phonebook.list' - model (user cards);
-     * 'phonebook.myData' - info about me;
+     * 'phonebook.myData' - info about current user;
      */
-    phonebookDatebaseService.loadUserCard().then(function (userCard) {
-            phonebook.list = userCard;
-            phonebook.myData = phonebook.list.pop();
-        });
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            phonebookDatebaseService.loadUserCard().then(function (userCard) {
+                phonebook.list = userCard;
+                phonebook.myData = phonebook.list.pop();
+            });
+        } else {
+            $state.go('login');
+        }
+    });
+
+
+    // phonebookDatebaseService.loadUserCard().then(function (userCard) {
+    //         phonebook.list = userCard;
+    //         phonebook.myData = phonebook.list.pop();
+    //     });
 }
 
 
 Config.$inject = ['$stateProvider'];
+
+// todo: пофиксить баги в роутинге. При обновлении все падает и переход на старт.
 
 function Config($stateProvider) {
     $stateProvider.state('userroom', {
         url: "/phonebook/home/userroom",
         templateUrl: 'controllers/phonebook-controller/phonebook.html',
         resolve: {
-            auth: function ($q, $state, loginService) {
-                if (loginService.getUser() === null) {
-                    $q.reject();
-                    alert('Вы должны авторизироваться!');
-                    $state.go('login');
-                }
+            auth: function ($q, $state) {
+                /*
+                 * Watch of user auth;
+                 * If return false --> redirect on page 'login'
+                 */
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (!user) {
+                        alert('Вы должны авторизироваться!');
+                        $state.go('login');
+                    }
+                });
             }
         },
         controllerAs: 'phonebook',

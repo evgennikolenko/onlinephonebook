@@ -29,12 +29,16 @@ function Config($stateProvider, $urlRouterProvider) {
         url: "/phonebook/login",
         templateUrl: 'controllers/basic-controllers/login/login.html',
         resolve: {
-            auth: function ($q, $state, loginService) {
-                if (loginService.getUser() !== null) {
-                    $q.reject();
-                    alert('Вы уже авторизированы!');
-                    $state.go('home');
-                }
+            auth: function ($q, $state) {
+                /*
+                 * Watch of user auth;
+                 * If return true --> redirect on page 'home'
+                 */
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        $state.go('home');
+                    }
+                });
             }
         },
         controllerAs: 'login',
