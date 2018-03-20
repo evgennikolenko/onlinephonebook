@@ -12,7 +12,11 @@ angular.module('phoneBookApp')
             // },
             bindToController: true,
             controller: function (loginService) {
-                this.currentUserName = firebase.auth().currentUser.displayName;
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        this.currentUserName = firebase.auth().currentUser.displayName;
+                    }
+                });
 
                 this.signOut = function() {
                     loginService.signOut();
